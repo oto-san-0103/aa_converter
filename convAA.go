@@ -14,13 +14,24 @@ import (
 
 func main(){
 	var tmp string
-	const aa_dir_path = "C:\\Live5ch\\aa"
 
+	// 引数チェック
+	if len(os.Args) < 2 {
+		fmt.Print("引数が足りません ENTERキー押してください")
+		fmt.Scanln(&tmp)
+		os.Exit(1)
+	}
+
+	// 引数取得
+	aa_dir_path := os.Args[1]
+
+	// バックアップ
 	backup(aa_dir_path)
 
+	// 変換
 	convAa(aa_dir_path)
 
-	fmt.Print("終わったので何かキー押してください")
+	fmt.Print("終わったのでENTERキー押してください")
 	fmt.Scanln(&tmp)
 }
 
